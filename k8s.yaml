@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: url-dump-server
+  name: http-request-logger
   labels:
-    app: url-dump-server
+    app: http-request-logger
 spec:
   containers:
-  - name: url-dump-server
-    image: flask-dump-server:latest
+  - name: http-request-logger
+    image: http-request-logger:latest
     imagePullPolicy: Never
     ports:
     - containerPort: 8080
@@ -16,10 +16,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: url-dump-service
+  name: http-request-logger-service
 spec:
   selector:
-    app: url-dump-server
+    app: http-request-logger
   ports:
     - protocol: TCP
       port: 80

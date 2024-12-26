@@ -5,10 +5,10 @@ RUN pip install flask
 
 # Copy the Flask application to the container
 WORKDIR /app
-COPY dump_server.py .
+COPY request_logger.py .
 
 # Expose the default Flask port 8080
 EXPOSE 8080
 
 # Start the Flask application
-CMD ["python", "dump_server.py"]
+CMD ["python", "request_logger.py"]
