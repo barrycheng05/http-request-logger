@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: url-dump-server
+  labels:
+    app: url-dump-server
+spec:
+  containers:
+  - name: url-dump-server
+    image: flask-dump-server:latest
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 8080
+      name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: url-dump-service
+spec:
+  selector:
+    app: url-dump-server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
