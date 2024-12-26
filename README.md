@@ -33,7 +33,7 @@ cd http-request-logger
 
 2. Run with Python:
 ```bash
-python dump_server.py
+python request_logger.py
 ```
 
 The server will start on `http://localhost:8080`
@@ -42,12 +42,12 @@ The server will start on `http://localhost:8080`
 
 1. Build the Docker image:
 ```bash
-docker build -t flask-dump-server .
+docker build -t http-request-logger .
 ```
 
 2. Run the container:
 ```bash
-docker run -p 8080:8080 flask-dump-server
+docker run -p 8080:8080 http-request-logger
 ```
 
 ### Deploying to Kubernetes
